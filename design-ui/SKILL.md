@@ -52,6 +52,8 @@ For iOS or cross-platform apps, apply the same UX principles (hierarchy, states,
 
 ## 7. Review before handing off
 
-Look at the rendered result, not just the code. Check hierarchy (is the primary action obvious?), consistency (spacing, type, color), all states, contrast, keyboard path, and phone layout. List anything you could not check (no browser, no real device) and how to check it.
+Look at the rendered result, not just the code, when visual inspection tools are available. Check hierarchy (is the primary action obvious?), consistency (spacing, type, color), all states, contrast, keyboard path, and phone layout.
+
+If browser or device inspection is blocked, do not imply the visuals were verified. Record the limitation and leave specific manual checks for the user, tailored to the screen. At minimum, list the viewport sizes to inspect, the primary flow and its loading/empty/error/success states, keyboard navigation and visible focus, and any contrast or touch-target measurements still needed.
 
 For Android, also run the checklist at the end of `references/android.md`. Hand finished design decisions to build-feature, and record them in DESIGN.md or PLAN.md.

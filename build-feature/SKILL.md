@@ -28,7 +28,7 @@ Goal: make the smallest correct change that delivers the feature, prove it works
 1. Run the project's tests, linter, and build. Read the output. Fix what fails.
 2. Walk the real user flow once (browser or API call), not just the unit tests.
 3. Update PLAN.md: mark the feature status and note any decisions. If the change affects setup, configuration, or an API, use write-docs to update the README or API docs in the same change.
-4. Report: what changed, how it was checked, what was not checked.
+4. Report what changed and the code, browser, CI, and deployed statuses separately, following dev-lead's reporting format. Name any checks not run and why; a local check does not imply CI or browser verification, and a successful build does not imply deployment.
 5. Offer a commit message in the conventional style, for example `feat(booking): let visitors reserve a room`. Commit or push only if the user asks.
 
 ## When to stop and ask

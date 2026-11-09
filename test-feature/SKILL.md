@@ -18,6 +18,8 @@ Goal: turn "I think it works" into evidence. Tests are the proof, and the safety
 
 Most projects want many unit tests, a moderate number of integration tests, and a few end-to-end tests covering the core flow. Use the project's existing test tools; if none exist, suggest a mainstream one (for example Vitest or Jest for JavaScript, pytest for Python, Playwright for browser flows) and say why.
 
+For a small site, keep verification lightweight: turn the requested behavior into a short list of observable acceptance checks, then run the simplest checks that prove them using the project's existing tools. Add browser testing only when browser tools are available and it adds useful coverage; do not make a new browser-testing setup a prerequisite for checking a small change.
+
 ## Process
 
 1. **Start from acceptance criteria** in PLAN.md. Each criterion becomes at least one test, so the tests prove the feature rather than the implementation.
@@ -25,7 +27,7 @@ Most projects want many unit tests, a moderate number of integration tests, and 
 3. **Cover more than the happy path:** empty input, very long input, wrong types, missing permissions, duplicate submissions, network failure, and boundary values.
 4. **Keep tests independent and deterministic.** No reliance on test order, real clocks, or live third-party services (use fakes or mocks at those edges only).
 5. **Run the whole suite**, not just the new test. Read the output. Report counts: passed, failed, skipped.
-6. **Walk the real flow** once, in a browser or with real API calls, for anything user-facing. If a browser tool is unavailable, say the browser check did not run and give the exact steps the user can follow.
+6. **Walk the real flow** once for anything user-facing: use browser tools when available, otherwise use real API calls or the simplest applicable acceptance check. If a browser check is useful but browser tools are unavailable, say it was not run and give the exact steps the user can follow.
 
 ## When a test fails
 
@@ -46,4 +48,4 @@ Severity: blocker | major | minor
 
 ## Reporting
 
-State what was tested and how, the result counts, and what was not tested. Never claim "all tests pass" or "fixed" without having run them in this session. Coverage numbers are a hint, not a goal: a high percentage with weak assertions proves little.
+State what was tested and how, the result counts, and what was not tested. Report browser checks and CI separately from local checks; neither is implied by a passing test suite. Never claim "all tests pass" or "fixed" without having run them in this session. Coverage numbers are a hint, not a goal: a high percentage with weak assertions proves little.

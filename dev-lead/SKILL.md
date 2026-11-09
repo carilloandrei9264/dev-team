@@ -54,7 +54,14 @@ Keep a short `PLAN.md` at the repo root (created by plan-project): goal, feature
 
 ## Reporting back
 
-End each piece of work with three lines: what changed, how it was checked, and what was not checked. Keep it short.
+End each piece of work with a concise report that keeps these milestones separate:
+
+- **Code:** complete or incomplete, with the local checks run.
+- **Browser:** verified, not verified (and why), or not applicable.
+- **CI:** verified, not verified (and why), or not configured.
+- **Deployed:** deployed and checked at the target, not deployed, or not applicable.
+
+Include what changed and any specific follow-up checks. Do not infer browser verification from code completion, CI verification from local checks, or deployment from a successful build.
 
 ## Launch readiness
 

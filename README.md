@@ -34,6 +34,8 @@ python -m unittest discover -s tests
 
 These checks verify skill metadata, router and README coverage, and referenced local Markdown files. They check pack structure, not whether an AI selects the right skill.
 
+For small-site feature work, the pack starts with a short set of observable acceptance checks and the project's existing lightweight test tools. Browser testing is an additional step when browser tools are available, not a prerequisite. Reports keep code completion, browser verification, CI verification, and deployment as separate milestones.
+
 For a manual routing smoke test, install the skills and try these requests in Claude Code or Claude.ai. Confirm the indicated skill or skills are selected:
 
 1. "I want to build a booking site for a small dental clinic. Help me plan it." (`plan-project`)
