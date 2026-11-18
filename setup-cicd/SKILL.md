@@ -1,6 +1,6 @@
 ---
 name: setup-cicd
-description: Set up or fix CI/CD pipelines that automatically test, build, and deploy code on every push, especially GitHub Actions. Use whenever the user mentions CI, CD, CI/CD, pipelines, GitHub Actions, workflows, automated checks or deploys, "my build failed", or "why is the pipeline red". Covers the integration and delivery automation stage of the SDLC.
+description: Set up or fix CI/CD pipelines that automatically test, build, and deploy code on every push, especially GitHub Actions. Use whenever the user mentions CI, CD, CI/CD, pipelines, GitHub Actions, workflows, automated checks or deploys, "my build failed", or "why is the pipeline red". Covers the integration and delivery automation stage of the SDLC. For hosting, Docker, or domains use deploy-devops.
 ---
 
 # setup-cicd
@@ -65,3 +65,9 @@ Pin third-party actions to a version tag or commit, and use the minimal `permiss
 ## Hand-off
 
 Tell the user which file you created or changed, what triggers it, what it runs, and what is not yet automated. Do not commit or push the workflow unless asked.
+
+## Connections
+
+- **Needs:** test and build commands that pass locally (from `test-feature`)
+- **Produces:** `.github/workflows/ci.yml` (or the equivalent for the project's CI), a short note on what is and is not automated
+- **Next:** `deploy-devops` (CI is green and the user wants to ship), `build-feature` (a failure turns out to be a code bug, not a pipeline problem)

@@ -46,4 +46,12 @@ A small site gets one compact PLAN.md. Do not generate folders of sprint paperwo
 
 ## Hand-off
 
-Finish with the first step to build and the suggested next skill (design-architecture if the stack or data model is undecided, otherwise build-feature).
+Finish with the first step to build and one suggested next skill, chosen from Connections below.
+
+Once the user approves PLAN.md, dev-lead creates `PROJECT_MEMORY.md` (and the `AGENTS.md` and `CLAUDE.md` pointers) so later sessions and other AI tools can resume without rereading everything. Keep feature status and decisions in PLAN.md only; the memory file links to them.
+
+## Connections
+
+- **Needs:** the user's idea; nothing else
+- **Produces:** `PLAN.md` (goal, core flow, features with acceptance criteria, decisions, risks)
+- **Next:** `design-architecture` (stack, data model, or API still undecided), `design-ui` (the project has screens and no design direction yet), `build-feature` (stack and design are settled or not needed)

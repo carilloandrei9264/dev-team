@@ -9,7 +9,7 @@ Goal: make the smallest correct change that delivers the feature, prove it works
 
 ## Before writing code
 
-1. Read PLAN.md for the feature's acceptance criteria. If there are none, write them first (one line each, checkable).
+1. Read PROJECT_MEMORY.md if it exists (current state, standing instructions, gotchas), then PLAN.md for the feature's acceptance criteria. If there are none, write them first (one line each, checkable).
 2. Read the surrounding code: naming, structure, existing helpers, how similar things are done. Match them.
 3. If this is a bug, **find the cause before changing anything**: reproduce it, read the error, trace where the bad value comes from, test one hypothesis at a time. A fix without a known cause usually moves the bug.
 
@@ -17,7 +17,7 @@ Goal: make the smallest correct change that delivers the feature, prove it works
 
 - **Smallest change that fully solves it.** No extra files, libraries, settings, or features that were not asked for. If a dependency is tempting, say why and let the user decide.
 - **Test first when behavior changes.** Write a failing test from the acceptance criteria, then the code to pass it (details in test-feature).
-- **Frontend:** for any new page or screen, use design-ui first for hierarchy, states, and accessibility. Then: semantic HTML, responsive from phone up, visible keyboard focus, alt text, sufficient contrast, loading and error and empty states for anything that fetches data. Keep the existing design direction; do not restyle pages the user already approved.
+- **Frontend:** for any new page or screen, use design-ui first for hierarchy, states, and accessibility. Build from its DESIGN.md: put the tokens in CSS variables and use only those (no raw colors or font names in components), show the concept only where DESIGN.md puts it (signature parts, empty and success states, copy), and keep forms, labels, and navigation plain. Then: semantic HTML, responsive from phone up, visible keyboard focus, alt text, sufficient contrast, loading and error and empty states for anything that fetches data. Keep the existing design direction; do not restyle pages the user already approved.
 - **Backend:** validate and sanitize all input on the server, return correct status codes and a consistent error shape, use parameterized queries only (never string-built SQL), check permissions on every route, and keep secrets in environment variables.
 - **Database changes** go through migrations, not manual edits, and must be reversible where practical.
 - **Comments explain why**, not what. Name things clearly instead.
@@ -27,10 +27,16 @@ Goal: make the smallest correct change that delivers the feature, prove it works
 
 1. Run the project's tests, linter, and build. Read the output. Fix what fails.
 2. Walk the real user flow once (browser or API call), not just the unit tests.
-3. Update PLAN.md: mark the feature status and note any decisions. If the change affects setup, configuration, or an API, use write-docs to update the README or API docs in the same change.
+3. Update PLAN.md: mark the feature status and note any decisions. Update PROJECT_MEMORY.md: what is done, the next step, the verified milestones, and any new gotcha or standing instruction the user gave. If the change affects setup, configuration, or an API, use write-docs to update the README or API docs in the same change.
 4. Report what changed and the code, browser, CI, and deployed statuses separately, following dev-lead's reporting format. Name any checks not run and why; a local check does not imply CI or browser verification, and a successful build does not imply deployment.
 5. Offer a commit message in the conventional style, for example `feat(booking): let visitors reserve a room`. Commit or push only if the user asks.
 
 ## When to stop and ask
 
 The plan does not match reality, the change needs credentials or a paid service, the fix would touch unrelated areas, or two reasonable designs have a real tradeoff. Present the options with a recommendation, then wait.
+
+## Connections
+
+- **Needs:** `PLAN.md` (from `plan-project`; if acceptance criteria are missing, write checkable ones first), `PROJECT_MEMORY.md` (from `dev-lead`; skip if the project has none), `DESIGN.md` (from `design-ui`; needed for new pages or screens, otherwise run `design-ui` first)
+- **Produces:** the code change, updated `PLAN.md` (status and decisions), updated `PROJECT_MEMORY.md`, a suggested commit message
+- **Next:** `test-feature` (always, before calling anything done), `write-docs` (setup, configuration, or an API changed), `review-code` (a substantial change, before merge), `plan-project` (the plan no longer matches reality)

@@ -1,6 +1,6 @@
 ---
 name: test-feature
-description: Write, run, and interpret tests for a web or software project, and verify that a feature really works before calling it done. Use whenever the user asks for tests, "does this work", "check it", "why is the test failing", "add coverage", or when a feature or bug fix has just been built. Covers the testing/QA stage of the SDLC (unit, integration, end-to-end, manual checks, bug reports).
+description: Write, run, and interpret tests for a web or software project, and verify that a feature really works before calling it done. Use whenever the user asks for tests, "does this work", "check it", "why is the test failing", "add coverage", or when a feature or bug fix has just been built. Covers the testing/QA stage of the SDLC (unit, integration, end-to-end, manual checks, bug reports). It runs and proves behavior; for reading code for problems use review-code.
 ---
 
 # test-feature
@@ -49,3 +49,9 @@ Severity: blocker | major | minor
 ## Reporting
 
 State what was tested and how, the result counts, and what was not tested. Report browser checks and CI separately from local checks; neither is implied by a passing test suite. Never claim "all tests pass" or "fixed" without having run them in this session. Coverage numbers are a hint, not a goal: a high percentage with weak assertions proves little.
+
+## Connections
+
+- **Needs:** `PLAN.md` (from `plan-project`; the acceptance criteria become the tests), the built feature or fix (from `build-feature`)
+- **Produces:** tests, a result report (counts and what was not tested), bug reports
+- **Next:** `build-feature` (a check fails because the code is wrong), `review-code` (checks pass and the change is substantial), `setup-cicd` (the checks should run automatically and no pipeline exists yet)

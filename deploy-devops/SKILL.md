@@ -1,6 +1,6 @@
 ---
 name: deploy-devops
-description: Deploy and operate a web app or software project, including hosting choices, Docker containers, environment variables and secrets, staging vs production, domains and HTTPS, monitoring, backups, and rollback. Use whenever the user mentions deploying, hosting, going live, Docker, servers, AWS, Azure, GCP, Vercel, Netlify, Terraform, DevOps, environments, logs, monitoring, uptime, or "how do I put this online".
+description: Deploy and operate a web app or software project, including hosting choices, Docker containers, environment variables and secrets, staging vs production, domains and HTTPS, monitoring, backups, and rollback. Use whenever the user mentions deploying, hosting, going live, Docker, servers, AWS, Azure, GCP, Vercel, Netlify, Terraform, DevOps, environments, logs, monitoring, uptime, or "how do I put this online". For pipelines or GitHub Actions use setup-cicd.
 ---
 
 # deploy-devops
@@ -57,3 +57,9 @@ Report each as done, pending, or not applicable:
 - [ ] Core flow verified on the live URL
 
 For a full readiness score, use the launch readiness reference in the dev-lead skill.
+
+## Connections
+
+- **Needs:** passing CI (from `setup-cicd`; if there is no pipeline, run `setup-cicd` first), `README.md` (from `write-docs`; the run and rollback steps are written into it)
+- **Produces:** hosting and environment config, `.env.example`, a Dockerfile when useful, rollback steps, the pre-deploy checklist result
+- **Next:** `write-docs` (record hosting, accounts, and rollback), `dev-lead` (the user asks for a full launch readiness score)

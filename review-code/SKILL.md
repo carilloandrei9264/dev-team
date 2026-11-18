@@ -1,6 +1,6 @@
 ---
 name: review-code
-description: Review code, a diff, a pull request, or a whole project for bugs, security problems, readability, performance, and test gaps, and respond properly to review feedback. Use whenever the user says "review this", "check my code", "is this secure", "look at my PR", "audit the code", or pastes code and asks if it is good, and before merging any substantial change.
+description: Review code, a diff, a pull request, or a whole project for bugs, security problems, readability, performance, and test gaps, and respond properly to review feedback. Use whenever the user says "review this", "check my code", "is this secure", "look at my PR", "audit the code", or pastes code and asks if it is good, and before merging any substantial change. It reads code; for running or writing tests use test-feature.
 ---
 
 # review-code
@@ -52,3 +52,9 @@ When the user brings you review comments to act on:
 2. Verify the claim against the code. Reviewers are sometimes wrong, and blindly applying a bad suggestion adds a bug.
 3. Fix valid points one at a time and rerun tests. Push back politely, with evidence, on the ones that are not valid.
 4. Summarize what you changed and what you declined, with reasons.
+
+## Connections
+
+- **Needs:** the code, diff, or pull request to review, `PLAN.md` (from `plan-project`; optional, to judge correctness against the plan)
+- **Produces:** a review with a verdict and findings grouped by severity
+- **Next:** `build-feature` (blockers or should-fix items to act on), `test-feature` (test gaps found), `deploy-devops` (the verdict is approve and the user wants to ship)

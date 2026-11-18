@@ -22,6 +22,7 @@ Goal: someone who has never seen this project can understand it, run it, and cha
 |-------------------------------|----------------------------------|--------------------------|
 | What is this, how do I run it | README                           | repo root                |
 | Project goals and status      | PLAN.md (from plan-project)      | repo root                |
+| Handoff notes for the next AI session | PROJECT_MEMORY.md (owned by dev-lead) | repo root   |
 | How it is built and why       | Architecture note, decision log  | `docs/architecture.md`   |
 | How to call the API           | API reference                    | `docs/api.md` or OpenAPI |
 | How to use the product        | User guide                       | `docs/guide.md`          |
@@ -91,3 +92,9 @@ Plain words: what was built, how to run and update it, where it is hosted, accou
 ## Keep it alive
 
 After finishing a feature or change, check whether the README, API docs, or env variable list is now out of date and update it in the same change. Offer to do this at the end of build-feature work.
+
+## Connections
+
+- **Needs:** the working code, config, and scripts to document (from `build-feature`), `PLAN.md` (from `plan-project`; for goals and status)
+- **Produces:** `README.md`, `CHANGELOG.md`, files under `docs/`, code comments, the handoff report
+- **Next:** `build-feature` (the next feature in the plan), `setup-cicd` (shipping and no pipeline exists yet), `deploy-devops` (shipping)

@@ -1,6 +1,6 @@
 ---
 name: design-architecture
-description: Choose the tech stack, folder structure, database schema, API design, and authentication approach for a project. Use after planning and before building, or whenever the user asks "what stack should I use", "how should I structure this", "design the database", "design the API", "monolith or microservices", or needs to decide how the pieces fit together. Covers the design stage of the SDLC.
+description: Choose the tech stack, folder structure, database schema, API design, and authentication approach for a project. Use after planning and before building, or whenever the user asks "what stack should I use", "how should I structure this", "design the database", "design the API", "monolith or microservices", or needs to decide how the pieces fit together. Covers the design stage of the SDLC. Not for look and feel (use design-ui).
 ---
 
 # design-architecture
@@ -34,3 +34,9 @@ A short design note: stack and why, folder tree, data model, API list (if any), 
 - Storing secrets or API keys in frontend code.
 - Authorization checked only in the browser.
 - A database chosen because it is fashionable rather than because of the data shape.
+
+## Connections
+
+- **Needs:** `PLAN.md` (from `plan-project`; if it is absent, write one-line goals and constraints first, or run `plan-project` when the scope is unclear)
+- **Produces:** stack, folder layout, data model, API and auth decisions, recorded in `PLAN.md` under Decisions
+- **Next:** `design-ui` (the project has screens), `build-feature` (the user confirmed the design note and nothing needs designing visually)

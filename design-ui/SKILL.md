@@ -1,6 +1,6 @@
 ---
 name: design-ui
-description: UI and UX design for websites, web apps, and app screens, covering visual direction, layout, typography, color, spacing, user flows, accessibility, responsive behavior, and interaction states. Use whenever the user asks for a design, layout, look and feel, landing page, dashboard, mockup, wireframe, "make it look better", "it looks generic", usability, or accessibility, and before building any new page or screen. Use even if they only say "build a page" with no mention of design.
+description: UI and UX design for websites, web apps, and app screens, covering visual direction, layout, typography, color, spacing, user flows, accessibility, responsive behavior, and interaction states. Use whenever the user asks for a design, layout, look and feel, landing page, dashboard, mockup, wireframe, "make it look better", "it looks generic", a named visual style (glassmorphism, neo-brutalism, minimalist, retro, and similar), only an idea for a site that needs a look of its own, usability, or accessibility, and before building any new page or screen. Use even if they only say "build a page" with no mention of design. Not for stack or database choices (use design-architecture).
 ---
 
 # design-ui
@@ -19,13 +19,15 @@ Respect what exists. If the project already has a brand, design system, or appro
 
 ## 2. Visual direction (new projects)
 
-Choose a direction deliberately and write it in a short `DESIGN.md`: mood in three words, palette, type, spacing scale, corner radius, and what to avoid.
+Choose a direction deliberately and write it in a short `DESIGN.md`: mood in three words, style, palette, type, spacing scale, corner radius, and what to avoid. List DESIGN.md under "Where things are" in PROJECT_MEMORY.md so later sessions find it without searching.
 
+- **Concept first (new projects, or when the user gives only an idea):** read `references/concept.md`. Work from the product's subject: collect its vocabulary, pick one central metaphor that carries information, and translate that into palette, type, shape, imagery, components, and copy, with usability guardrails. Do it before choosing a style and write the result into DESIGN.md. Keep it proportionate: for a small site it is a few minutes of thinking, not a workshop.
+- **Style:** read `references/styles/index.md`, a catalog of 15 visual styles (glassmorphism, neo-brutalism, organic-natural, editorial, and more) with a picker by situation. Choose one surface style, read only that style's file, copy its tokens into the project's CSS variables, and record the style name in DESIGN.md. The starter palettes pass contrast but are neutral samples: retune hue, type, and shape to this product before building, then measure again. If the user names a style, use that file; if they name one that is not listed, follow the index's "not listed" steps.
 - **Type:** at most two typefaces. A readable body size (16px minimum), clear scale for headings, line length around 45 to 75 characters, comfortable line height.
 - **Color:** one primary, one accent, neutrals, plus semantic colors for success, warning, error. Store them as tokens (CSS variables), not scattered hex values. Check contrast with a measurement: 4.5:1 for body text, 3:1 for large text and UI controls.
 - **Spacing:** pick a scale (for example 4, 8, 12, 16, 24, 32, 48) and use only those. Consistent spacing does more for polish than decoration.
 - **Layout:** align to a grid, group related things, and use whitespace to separate groups rather than borders everywhere.
-- **Avoid the generic AI look:** the centered headline over three icon cards and a soft purple gradient. Ask what is distinctive about this client and let it shape layout, imagery, and tone.
+- **Avoid the generic AI look:** the centered headline over three icon cards and a soft purple gradient. Ask what is distinctive about this client and let it shape layout, imagery, and tone; the concept step above is how.
 - **Match the context:** dashboards and admin screens favor clarity, density, and consistency. Marketing pages and portfolios can take more personality.
 
 ## 3. Build the details people feel
@@ -57,3 +59,9 @@ Look at the rendered result, not just the code, when visual inspection tools are
 If browser or device inspection is blocked, do not imply the visuals were verified. Record the limitation and leave specific manual checks for the user, tailored to the screen. At minimum, list the viewport sizes to inspect, the primary flow and its loading/empty/error/success states, keyboard navigation and visible focus, and any contrast or touch-target measurements still needed.
 
 For Android, also run the checklist at the end of `references/android.md`. Hand finished design decisions to build-feature, and record them in DESIGN.md or PLAN.md.
+
+## Connections
+
+- **Needs:** `PLAN.md` (from `plan-project`; the users and the core flow shape the screens)
+- **Produces:** `DESIGN.md` (concept, style, direction, palette, type, spacing), a text wireframe, the list of screen states
+- **Next:** `build-feature` (the design is approved; hand over the design decisions)
